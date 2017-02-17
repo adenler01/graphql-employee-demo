@@ -17,6 +17,7 @@ Source:
 1. clone repo
 2. ensure node version is >= 6.9.2 (might work with other versions but this is the version it was written against)
 3. npm install
+4. update database configuration in config/config.js
 
 
 # running
