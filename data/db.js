@@ -1,11 +1,12 @@
 import mysql from 'mysql';
+import { config } from '../config/config';
 
 export default function createConnection() {
   let conn = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'employees'
+    host: config.database_host,
+    user: config.database_user,
+    password: config.database_password,
+    database: config.database_name
   });
 
   return {
