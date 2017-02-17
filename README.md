@@ -6,6 +6,14 @@ This repository contains a demo graphQl server project created while learning gr
 3. Apollo Server
 
 # installation
+Database:
+
+1. download the employee database backup from https://www.dropbox.com/s/er08yiu8ecgifep/employees.sql.gz?dl=0
+2. unzip
+3. restore to a local mysql
+
+Source:
+
 1. clone repo
 2. ensure node version is >= 6.9.2 (might work with other versions but this is the version it was written against)
 3. npm install
