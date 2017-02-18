@@ -7,18 +7,38 @@ import { salarySchema, salaryResolver } from './salary';
 import { titleSchema, titleResolver } from './title';
 
 const rootSchema = `
+  # Search all HR Entities
   type Query {
+    # Retreive a single department
     department(dept_no: String!): Department
+
+    # Retreive a list of departments
     departments: [Department]
+
+    # Retrieve the department manager crosss reference
     departmentManagers: [DepartmentManager]
+
+    # Retrieve a single employee
     employee(emp_no: Int!): Employee
+
+    # Retrieve a list of employees
     employees(employeeSearch: EmployeeSearch): [Employee]
+
+    # Retrieve a list of employee salaries
     salaries(salariesSearch: SalarySearch): [Salary]
+
+    # Retreive a list of employee titles
     titles(limit: Int!): [Title]
   }
 
+  type Mutation {
+    insertUpdateDepartment(department: DepartmentInput!): Department
+  }
+
   schema {
+    # Search all HR Entities
     query: Query
+    mutation: Mutation
   }
 `;
 

@@ -5,6 +5,11 @@ const departmentSchema = `
     manager: Employee
     managerStartDate: String
     employees: [Employee]
+  }
+
+  input DepartmentInput {
+    dept_no: String!
+    dept_name: String!
   }`;
 
 const departmentResolver = {
@@ -20,6 +25,16 @@ const departmentResolver = {
       let db = context.db;
 
       return db.getDepartments();
+    },
+
+  },
+
+  Mutation: {
+    insertUpdateDepartment(parent, args, context) {
+      let db = context.db;
+      let department = args.department;
+
+      return db.insertUpdateDepartment(department);
     }
   },
 

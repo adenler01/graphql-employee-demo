@@ -1,23 +1,48 @@
 const schema = `
+  # An Employee
   type Employee {
+    # The employee number (pk)
     emp_no: Int!
+
+    # Employee's first name
     first_name: String!
+
+    # Employee's last name
     last_name: String!
+
+    # Employee's gender (M/F)
     gender: String!
+
+    # Employee's hire date
     hire_date: String!
+
+    # Employee's birth date
     birth_date: String!
+
+    # The employee's current department
     department: Department
+
+    # The employee's current salary
     salary: Salary
+
+    # The employee's salary history, including current
     salaries(limit: Int!): [Salary]
+
+    # The employee's current title
     title: Title
+
+    # The employee's title history, including current
     titles: [Title]
   }
 
+  # Employee search criteria
   input EmployeeSearch {
     emp_no: Int
     dept_no: String
     last_name: String
+    # The starting record number to return
     offset: Int
+    # The maximum number of records to return
     limit: Int
   }
   `;

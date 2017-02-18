@@ -275,6 +275,27 @@ export default function createConnection() {
 
       });
     },
+
+    insertUpdateDepartment(department) {
+      let _this = this;
+
+      console.log('department', department);
+
+      return new Promise((resolve, reject) => {
+        let qry = "insert into departments (dept_no, dept_name) values (?, ?)";
+
+        _this.conn.query(qry, [department.dept_no, department.dept_name], function (err, results, fields) {
+          if (err) {
+            reject(err);
+          }
+
+          let newDepartment = _this.getDepartment(department.dept_no);
+          console.log('new department:', newDepartment)
+          resolve(newDepartment);
+
+        });
+      });
+    }
   }
 }
 
