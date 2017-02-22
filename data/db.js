@@ -12,6 +12,24 @@ export default function createConnection() {
   return {
     conn,
 
+    deleteDepartment(dept_no) {
+      return new Promise((resolve, reject) => {
+        this.conn.query(`
+        delete
+        from departments
+        where dept_no = ?
+      `, [dept_no], function (err, results, fields) {
+            if (err) {
+              reject(err);
+              return;
+            }
+
+            resolve(1);
+          });
+
+      });
+    },
+
     getDepartment(dept_no) {
       return new Promise((resolve, reject) => {
         this.conn.query(`

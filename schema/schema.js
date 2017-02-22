@@ -33,6 +33,7 @@ const rootSchema = `
 
   type Mutation {
     insertUpdateDepartment(department: DepartmentInput!): Department
+    deleteDepartment(dept_no: String!): Int
   }
 
   schema {

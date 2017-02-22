@@ -35,6 +35,13 @@ const departmentResolver = {
       let department = args.department;
 
       return db.insertUpdateDepartment(department);
+    },
+
+    deleteDepartment(parent, args, context) {
+      let db = context.db;
+      let dept_no = args.dept_no;
+
+      return db.deleteDepartment(dept_no);
     }
   },
 
