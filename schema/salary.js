@@ -16,6 +16,12 @@ const resolver = {
     salaries(parent, args, context) {
       let db = context.db;
 
+      let limit = 3;
+
+      if (args.salariesSearch && args.salariesSearch.limit) {
+        limit = args.salariesSearch.limit;
+      }
+
       return db.getSalaries(limit);
     }
   }
