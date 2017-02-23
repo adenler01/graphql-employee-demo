@@ -70,7 +70,12 @@ const resolver = {
       let emp_no = parent.emp_no;
 
       return db.getEmployeeDepartment(emp_no, new Date()).then(employee_department => {
-        return db.getDepartment(employee_department.dept_no);
+        if (employee_department) {
+          return db.getDepartment(employee_department.dept_no);
+        } else {
+          return null;
+        }
+
       });
     },
 

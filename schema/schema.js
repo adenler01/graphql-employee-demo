@@ -32,7 +32,10 @@ const rootSchema = `
   }
 
   type Mutation {
+    # insert or update a department
     insertUpdateDepartment(department: DepartmentInput!): Department
+
+    # remove an existing department
     deleteDepartment(dept_no: String!): Int
   }
 
@@ -40,6 +43,9 @@ const rootSchema = `
     # Search all HR Entities
     query: Query
     mutation: Mutation
+
+    # coming soon :-)
+    # subscription: Subscription
   }
 `;
 
